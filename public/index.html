@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="/jquery-2.1.4.js"></script>
+  <script src="/moment.js"></script>
+</head>
+<body>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/script.js"></script>
+  <div id='register'>
+    <h1>Enter your name</h1>
+    <input id='username' placeholder='enter your name'/>
+    <button id='submit'/>Submit</button>
+  </div>
+
+  <div id ='message'>
+    <input id="chat" name="message" placeholder="Enter your message">
+    <button id="send">Send</button>
+  </div>
+  <div id='usersList'>
+    <ul id='buddyList'>
+    </ul>
+  </div>
+  <div id='chatMessages'>
+  </div>
+</body>
+</html>
