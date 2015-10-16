@@ -2,7 +2,7 @@ var express = require('express');
 // var morgan = require('morgan');
 var app = express();
 
-var server = app.listen(3000);
+var server = app.listen(process.env.PORT);
 var io = require('socket.io')(server);
 
 //alternate syntax
