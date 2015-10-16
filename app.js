@@ -1,5 +1,5 @@
 var express = require('express');
-var morgan = require('morgan');
+// var morgan = require('morgan');
 var app = express();
 
 var server = app.listen(3000);
@@ -9,7 +9,7 @@ var io = require('socket.io')(server);
 // var socket = require('socket.io');
 // var io = socket(server);
 
-app.use(morgan('combined'));
+// app.use(morgan('combined'));
 app.use(express.static('public'));
 
 var users = [];
