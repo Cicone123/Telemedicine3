@@ -1,7 +1,6 @@
 body {
   background-color: #2B2F35;
 }
-
 li {
   list-style: none;
 }
@@ -9,25 +8,62 @@ small {
   color: #5D6E75;
 }
 
+/*enter name first box*/
 #register {
   position: absolute;
   top: 30vh;
   left: 35vw;
 }
 
+/*chat box height*/
 .panel-body.diag {
   height: 75vh;
   overflow: auto;
 }
 
+/*send button*/
 #send {
   height: 32.8px;
   border: 0;
 }
+
+/*centering text for panels*/
 .panel-title {
   text-align: center;
 }
 
+
+.tooltip{
+    display: inline;
+    position: relative;
+}
+.tooltip:hover:after{
+    background: #333;
+    background: rgba(0,0,0,.8);
+    border-radius: 5px;
+    bottom: 26px;
+    color: #fff;
+    content: attr(title);
+    left: 20%;
+    padding: 5px 15px;
+    position: absolute;
+    z-index: 98;
+    width: 220px;
+}
+
+.tooltip:hover:before{
+    border: solid;
+    border-color: #333 transparent;
+    border-width: 6px 6px 0 6px;
+    bottom: 20px;
+    content: "";
+    left: 50%;
+    position: absolute;
+    z-index: 99;
+}
+
+
+/*responsive*/
 @media (max-width: 800px){
   #register {
     left: 25vw;

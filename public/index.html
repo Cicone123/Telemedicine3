@@ -12,6 +12,10 @@
   <script src="/socket.io/socket.io.js"></script>
   <script src="/script.js"></script>
   <div class='container'>
+    <div id='alert'>
+    </div>
+  </div>
+  <div class='container'>
     <div id='register' class="panel panel-success">
       <div class="panel-heading">
         <h3 class="panel-title"> Please enter your name to get started</h3>
@@ -29,9 +33,9 @@
         <div class="panel-heading">
           <h3 class="panel-title"> Chat Log</h3>
         </div>
-        <div class="panel-body diag">
-          <div id='chatMessages'>
-          </div>
+        <div id='chatMessages' class="panel-body diag">
+          <!-- <div id='chatMessages'>
+          </div> -->
         </div>
         <div id ='message' class="panel-footer input-group">
           <input id="chat" class="form-control input-sm" name="message" placeholder="Enter your message"/>

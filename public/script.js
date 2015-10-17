@@ -10,22 +10,28 @@ $(function(){
   $('.col-md-8').hide();
   $('.col-md-3').hide();
 
+  function showalert(message,alerttype) {
+    $('#alert').append('<div id="alertdiv" class="alert ' +  alerttype + '"><a class="close" data-dismiss="alert">×</a><span>'+message+'</span></div>')
+    setTimeout(function() { // this will automatically close the alert and remove this if the users doesnt close it in 5 secs
+      $("#alertdiv").remove();
+    }, 5000);
+  }; //alert message
+
   $('#submit').on('click', function(event){
     socket.emit('authorize', {name: $name.val()})
     $name.val('');
   }); //submit authorization click
 
   socket.on('disapproved', function(message){
-    alert(message.message);
+    showalert("Name already exists. Enter a different name","alert-danger")
   }); //socket disapproved
 
   socket.on('approved', function(message){
     $('#register').hide();
     $('.col-md-8').show();
     $('.col-md-3').show();
-    alert(message.message);
+    showalert("Welcome! Enter a message to start chatting.","alert-success");
   }); //socket approved
-
 
   socket.on('newUser', function(userlist){
     $('#buddyList').empty();
@@ -39,6 +45,14 @@ $(function(){
       $('<p>').text(chat.message).appendTo(sentence)
       sentence.appendTo('#chatMessages')
     });
+
+    var height = 0;
+    $('#chatMessages div').each(function(i, value){
+        height += parseInt($(this).height());
+    });
+    height += '';
+    $('#chatMessages').animate({scrollTop: height});
+
   }); // newUser added
 
   $('#send').on('click', function(event){
@@ -70,6 +84,13 @@ $(function(){
       $('<p>').text(returnMessage.message).appendTo(response)
       response.appendTo('#chatMessages')
     });
+
+    var height = 0;
+    $('#chatMessages div').each(function(i, value){
+        height += parseInt($(this).height());
+    });
+    height += '';
+    $('#chatMessages').animate({scrollTop: height});
   });//return on chatMessage
 
   socket.on('users', function(event){
@@ -78,4 +99,6 @@ $(function(){
       $('<li id="'+user.name+'">').text(user.name).appendTo('#buddyList')
     });  // names of users appendTo('#buddyList')
   });
+
+
 });
