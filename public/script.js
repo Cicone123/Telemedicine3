@@ -7,8 +7,8 @@ $(function(){
   var $message = $('#chat');
 
   //hide message box
-  $('#message').hide();
-
+  $('.col-md-8').hide();
+  $('.col-md-3').hide();
 
   $('#submit').on('click', function(event){
     socket.emit('authorize', {name: $name.val()})
@@ -21,7 +21,8 @@ $(function(){
 
   socket.on('approved', function(message){
     $('#register').hide();
-    $('#message').show();
+    $('.col-md-8').show();
+    $('.col-md-3').show();
     alert(message.message);
   }); //socket approved
 
@@ -33,12 +34,16 @@ $(function(){
     }); // names of users appendTo('#buddyList')
     $('#chatMessages').empty();
     userlist.messages.forEach(function(chat){
-      $('<p>').text(chat.name +": "+ moment(chat.createdAt).fromNow() +" " + chat.message).appendTo('#chatMessages');
+      var sentence = $('<div>')
+      $('<p>').html("<span class='label label-primary'>" + chat.name + "</span> <small>" + moment(chat.createdAt).fromNow() +"</small>").appendTo(sentence);
+      $('<p>').text(chat.message).appendTo(sentence)
+      sentence.appendTo('#chatMessages')
     });
   }); // newUser added
 
   $('#send').on('click', function(event){
     socket.emit('chat', {message: $message.val(), createdAt: moment().format('lll')})
+    $message.val('');
   }); //send message click
 
   $('#chat').on('keyup', function(event){
@@ -46,7 +51,7 @@ $(function(){
   }); //keyup
 
   socket.on('typeNotice', function(user){
-    $('#'+user.name).text(user.name + ' is typing...');
+    $('#'+user.name).html(user.name + '<small> is typing... </small>');
   });
 
   $('#chat').on('blur', function(event){
@@ -60,7 +65,10 @@ $(function(){
   socket.on('chatMessage', function(list){
     $('#chatMessages').empty();
     list.chats.forEach(function(returnMessage){
-      $('<p>').text(returnMessage.name +": "+ moment(returnMessage.createdAt).fromNow() +":"+ returnMessage.message).appendTo('#chatMessages');
+      var response = $('<div>')
+      $('<p>').html("<span class='label label-primary'>" + returnMessage.name + "</span> <small>" + moment(returnMessage.createdAt).fromNow() +"</small>").appendTo(response)
+      $('<p>').text(returnMessage.message).appendTo(response)
+      response.appendTo('#chatMessages')
     });
   });//return on chatMessage
 

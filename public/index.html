@@ -2,28 +2,59 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <title>ChatBotChat</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="/style.css" rel="stylesheet">
   <script src="/jquery-2.1.4.js"></script>
   <script src="/moment.js"></script>
 </head>
 <body>
   <script src="/socket.io/socket.io.js"></script>
   <script src="/script.js"></script>
-  <div id='register'>
-    <h1>Enter your name</h1>
-    <input id='username' placeholder='enter your name'/>
-    <button id='submit'/>Submit</button>
+  <div class='container'>
+    <div id='register' class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title"> Please enter your name to get started</h3>
+      </div>
+      <div class="panel-body">
+        <input id='username' class="form-control" placeholder='e.g. Sesame'/>
+        <button id='submit' class="btn btn-primary btn-sm btn-block">Submit</button>
+      </div>
+    </div>
   </div>
 
-  <div id ='message'>
-    <input id="chat" name="message" placeholder="Enter your message">
-    <button id="send">Send</button>
-  </div>
-  <div id='usersList'>
-    <ul id='buddyList'>
-    </ul>
-  </div>
-  <div id='chatMessages'>
+  <div class='container'>
+    <div class='col-md-8'>
+      <div class='panel panel-success'>
+        <div class="panel-heading">
+          <h3 class="panel-title"> Chat Log</h3>
+        </div>
+        <div class="panel-body diag">
+          <div id='chatMessages'>
+          </div>
+        </div>
+        <div id ='message' class="panel-footer input-group">
+          <input id="chat" class="form-control input-sm" name="message" placeholder="Enter your message"/>
+          <span class="input-group-btn">
+            <button id="send" class="btn btn-primary btn-sm">Send</button>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class='col-md-3'>
+      <div class='panel panel-success'>
+        <div class="panel-heading">
+          <h3 class="panel-title"> Current Users</h3>
+        </div>
+
+        <div id='usersList' class='panel-body diag'>
+            <ul id='buddyList'>
+            </ul>
+        </div>
+      </div>
+    </div>
+
   </div>
 </body>
 </html>

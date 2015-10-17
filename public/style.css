@@ -1,0 +1,41 @@
+body {
+  background-color: #2B2F35;
+}
+
+li {
+  list-style: none;
+}
+small {
+  color: #5D6E75;
+}
+
+#register {
+  position: absolute;
+  top: 30vh;
+  left: 35vw;
+}
+
+.panel-body.diag {
+  height: 75vh;
+  overflow: auto;
+}
+
+#send {
+  height: 32.8px;
+  border: 0;
+}
+.panel-title {
+  text-align: center;
+}
+
+@media (max-width: 800px){
+  #register {
+    left: 25vw;
+  }
+}
+
+@media (max-width: 550px){
+  #register {
+    left: 10vw;
+  }
+}
