@@ -1,15 +1,11 @@
-/*!
- * Bootstrap v3.3.5 (http://getbootstrap.com)
- * Copyright 2011-2015 Twitter, Inc.
- * Licensed under the MIT license
- */
-
 if (typeof jQuery === 'undefined') {
   throw new Error('Bootstrap\'s JavaScript requires jQuery')
 }
 
 +function ($) {
+
   'use strict';
+
   var version = $.fn.jquery.split(' ')[0].split('.')
   if ((version[0] < 2 && version[1] < 9) || (version[0] == 1 && version[1] == 9 && version[2] < 1)) {
     throw new Error('Bootstrap\'s JavaScript requires jQuery version 1.9.1 or higher')
@@ -34,12 +30,14 @@ if (typeof jQuery === 'undefined') {
   function transitionEnd() {
     var el = document.createElement('bootstrap')
 
+
     var transEndEventNames = {
       WebkitTransition : 'webkitTransitionEnd',
       MozTransition    : 'transitionend',
       OTransition      : 'oTransitionEnd otransitionend',
       transition       : 'transitionend'
     }
+
 
     for (var name in transEndEventNames) {
       if (el.style[name] !== undefined) {
@@ -56,7 +54,6 @@ if (typeof jQuery === 'undefined') {
     var $el = this
     $(this).one('bsTransitionEnd', function () { called = true })
     var callback = function () { if (!called) $($el).trigger($.support.transition.end) }
-    setTimeout(callback, duration)
     return this
   }
 
@@ -105,7 +102,6 @@ if (typeof jQuery === 'undefined') {
     var selector = $this.attr('data-target')
 
     if (!selector) {
-      selector = $this.attr('href')
       selector = selector && selector.replace(/.*(?=#[^\s]*$)/, '') // strip for ie7
     }
 
@@ -144,7 +140,6 @@ if (typeof jQuery === 'undefined') {
       var $this = $(this)
       var data  = $this.data('bs.alert')
 
-      if (!data) $this.data('bs.alert', (data = new Alert(this)))
       if (typeof option == 'string') data[option].call($this)
     })
   }
