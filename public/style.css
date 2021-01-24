@@ -4,6 +4,7 @@ body {
 }
 li {
   list-style: none;
+  list-style-position: inside;
 }
 small {
   color: #5D6E75;
@@ -12,6 +13,7 @@ small {
 /*enter name first box*/
 #register {
   display: inline;
+  background-attachment: fixed;
   position: absolute;
   top: 30vh;
   left: 35vw;
@@ -20,6 +22,7 @@ small {
 /*chat box height*/
 .panel-body.diag {
   width: auto;
+  padding-top: 0%;
   height: 75vh;
   overflow: auto;
 }
@@ -28,6 +31,7 @@ small {
 #send {
   width: auto;
   height: 32.8px;
+  align-items: baseline;
   border: 0;
 }
 
@@ -35,12 +39,14 @@ small {
 .panel-title {
   padding-left: 20%;
   padding-top: 20%;
+  align-self: start;
   text-align: center;
 }
 
 
 .tooltip{
     display: inline;
+    float: left;
     font-display: auto;
     inline-size: auto;
     position: relative;
@@ -53,6 +59,7 @@ small {
     color: #fff;
     content: attr(title);
     left: 20%;
+    right: 20px;
     padding: 5px 15px;
     position: absolute;
     z-index: 98;
