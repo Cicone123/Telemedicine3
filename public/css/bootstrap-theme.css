@@ -71,6 +71,7 @@ fieldset[disabled] .btn-danger {
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   background-repeat: repeat-x;
   border-color: #dbdbdb;
+  bottom: 20px;
   border-color: #ccc;
 }
 .btn-default:hover,
@@ -81,6 +82,7 @@ fieldset[disabled] .btn-danger {
 .btn-default:active,
 .btn-default.active {
   background-color: #e0e0e0;
+  bottom: 20px;
   border-color: #dbdbdb;
 }
 .btn-default.disabled,
@@ -105,6 +107,7 @@ fieldset[disabled] .btn-default.active {
   background-image: none;
 }
 .btn-primary {
+  bottom: 20px;
   background-image: -webkit-linear-gradient(top, #337ab7 0%, #265a88 100%);
   background-image:      -o-linear-gradient(top, #337ab7 0%, #265a88 100%);
   background-image: -webkit-gradient(linear, left top, left bottom, from(#337ab7), to(#265a88));
@@ -116,6 +119,7 @@ fieldset[disabled] .btn-default.active {
 }
 .btn-primary:hover,
 .btn-primary:focus {
+  stroke-dashoffset: 0%;
   background-color: #265a88;
   background-position: 0 -15px;
 }
@@ -123,6 +127,7 @@ fieldset[disabled] .btn-default.active {
 .btn-primary.active {
   background-color: #265a88;
   border-color: #245580;
+  text-emphasis: none;
 }
 .btn-primary.disabled,
 .btn-primary[disabled],

@@ -1,5 +1,6 @@
 body {
   background-color: #2B2F35;
+  color: white;
 }
 li {
   list-style: none;
@@ -10,6 +11,7 @@ small {
 
 /*enter name first box*/
 #register {
+  display: inline;
   position: absolute;
   top: 30vh;
   left: 35vw;
@@ -17,24 +19,30 @@ small {
 
 /*chat box height*/
 .panel-body.diag {
+  width: auto;
   height: 75vh;
   overflow: auto;
 }
 
 /*send button*/
 #send {
+  width: auto;
   height: 32.8px;
   border: 0;
 }
 
 /*centering text for panels*/
 .panel-title {
+  padding-left: 20%;
+  padding-top: 20%;
   text-align: center;
 }
 
 
 .tooltip{
     display: inline;
+    font-display: auto;
+    inline-size: auto;
     position: relative;
 }
 .tooltip:hover:after{
@@ -56,6 +64,7 @@ small {
     border-color: #333 transparent;
     border-width: 6px 6px 0 6px;
     bottom: 20px;
+    text-decoration: dashed;
     content: "";
     left: 50%;
     position: absolute;

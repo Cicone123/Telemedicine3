@@ -6,10 +6,12 @@
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
   font-family: sans-serif;
+  bottom: 20px;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
 body {
+  bottom: 20px;
   margin: 0;
 }
 article,
@@ -32,6 +34,7 @@ canvas,
 progress,
 video {
   display: inline-block;
+  bottom: 20px;
   vertical-align: baseline;
 }
 audio:not([controls]) {
@@ -44,6 +47,7 @@ template {
 }
 a {
   background-color: transparent;
+  display: block;
 }
 a:active,
 a:hover {
