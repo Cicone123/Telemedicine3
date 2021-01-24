@@ -3,11 +3,16 @@ var express = require('express');
 
 var app = express();
 
+<<<<<<< HEAD
 var port = process.env.PORT || 3000;
 
 //var server = app.listen(3000);
 
 var server = app.listen(port);
+=======
+// var server = app.listen(3000);
+var server = app.listen(process.env.PORT);
+>>>>>>> parent of b4473b7 (no message)
 var io = require('socket.io')(server);
 
 //alternate syntax
