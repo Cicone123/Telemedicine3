@@ -1,8 +1,12 @@
 var express = require('express');
 // var morgan = require('morgan');
+
 var app = express();
+
 var port = process.env.PORT || 3000;
+
 //var server = app.listen(3000);
+
 var server = app.listen(port);
 var io = require('socket.io')(server);
 
