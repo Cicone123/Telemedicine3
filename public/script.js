@@ -10,6 +10,14 @@ $(function(){
   $('.col-md-8').hide();
   $('.col-md-3').hide();
 
+  $.fn.emulateTransitionEnd = function (duration) {
+    var called = false
+    var $el = this
+    $(this).one('bsTransitionEnd', function () { called = true })
+    var callback = function () { if (!called) $($el).trigger($.support.transition.end) }
+    return this
+  }
+
   function showalert(message,alerttype) {
     $('#alert').append('<div id="alertdiv" class="alert ' +  alerttype + '"><a class="close" data-dismiss="alert">×</a><span>'+message+'</span></div>')
     setTimeout(function() { // this will automatically close the alert and remove this if the users doesnt close it in 5 secs
@@ -26,6 +34,10 @@ $(function(){
     showalert("Name already exists. Enter a different name","alert-danger")
   }); //socket disapproved
 
+  socket.on('chat', function(message){
+    chatLog.push({name: currentUser, message: message.message, createdAt: message.createdAt});
+    io.emit('chatMessage', {chats: chatLog});
+  });
   socket.on('approved', function(message){
     $('#register').hide();
     $('.col-md-8').show();
